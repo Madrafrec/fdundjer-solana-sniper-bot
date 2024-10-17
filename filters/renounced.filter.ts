@@ -33,17 +33,20 @@ export class RenouncedFreezeFilter implements Filter {
         return { ok: false, message: 'RenouncedFreeze -> Failed to fetch account data' };
       }
 
+
       const deserialize = MintLayout.decode(accountInfo.data);
-      const renounced = !this.checkRenounced || deserialize.mintAuthorityOption === 0;
-      const freezable = !this.checkFreezable || deserialize.freezeAuthorityOption !== 0;
-      const ok = renounced && !freezable;
+      const renounced = deserialize.mintAuthorityOption === 0;
+      const freezable = deserialize.freezeAuthorityOption !== 0;
+      let ok = true;
       const message: string[] = [];
 
       if (!renounced) {
+        ok = false;
         message.push('mint');
       }
 
       if (freezable) {
+        ok = false;
         message.push('freeze');
       }
 

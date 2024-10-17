@@ -5,6 +5,7 @@ import { BurnFilter } from './burn.filter';
 import { MutableFilter } from './mutable.filter';
 import { RenouncedFreezeFilter } from './renounced.filter';
 import { PoolSizeFilter } from './pool-size.filter';
+import { HoldersCountFilter, TopHolderDistributionFilter } from './holders';
 import { CHECK_IF_BURNED, CHECK_IF_FREEZABLE, CHECK_IF_MINT_IS_RENOUNCED, CHECK_IF_MUTABLE, CHECK_IF_SOCIALS, logger } from '../helpers';
 
 export interface Filter {
@@ -44,6 +45,9 @@ export class PoolFilters {
     if (!args.minPoolSize.isZero() || !args.maxPoolSize.isZero()) {
       this.filters.push(new PoolSizeFilter(connection, args.quoteToken, args.minPoolSize, args.maxPoolSize));
     }
+ 
+    this.filters.push(new HoldersCountFilter(connection));
+    this.filters.push(new TopHolderDistributionFilter(connection));
   }
 
   public async execute(poolKeys: LiquidityPoolKeysV4): Promise<boolean> {

@@ -48,6 +48,12 @@ import {
   CHECK_IF_SOCIALS,
   TRAILING_STOP_LOSS,
   SKIP_SELLING_IF_LOST_MORE_THAN,
+  HOLDER_MIN_AMOUNT,
+  TOP_HOLDER_MAX_PERCENTAGE,
+  ABNORMAL_HOLDER_NR,
+  TOP_10_MAX_PERCENTAGE,
+  CHECK_ABNORMAL_DISTRIBUTION,
+  TOP_10_PERCENTAGE_CHECK,
 } from './helpers';
 import { version } from './package.json';
 import { WarpTransactionExecutor } from './transactions/warp-transaction-executor';

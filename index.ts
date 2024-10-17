@@ -137,6 +137,14 @@ function printDetails(wallet: Keypair, quoteToken: Token, bot: Bot) {
     logger.info(`Max pool size: ${botConfig.maxPoolSize.toFixed()}`);
   }
 
+  logger.info('- Holder Filters -');
+  logger.info(`HOLDER_MIN_AMOUNT: ${HOLDER_MIN_AMOUNT}`);
+  logger.info(`TOP_HOLDER_MAX_PERCENTAGE: ${TOP_HOLDER_MAX_PERCENTAGE}%`);
+  logger.info(`ABNORMAL_HOLDER_NR: ${ABNORMAL_HOLDER_NR}`);
+  logger.info(`TOP_10_MAX_PERCENTAGE: ${TOP_10_MAX_PERCENTAGE}%`);
+  logger.info(`CHECK_ABNORMAL_DISTRIBUTION: ${CHECK_ABNORMAL_DISTRIBUTION}`);
+  logger.info(`TOP_10_PERCENTAGE_CHECK: ${TOP_10_PERCENTAGE_CHECK}%`);
+
   logger.info('------- CONFIGURATION END -------');
 
   logger.info('Bot is running! Press CTRL + C to stop it.');

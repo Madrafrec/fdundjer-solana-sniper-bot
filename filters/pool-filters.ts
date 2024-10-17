@@ -6,8 +6,7 @@ import { MutableFilter } from './mutable.filter';
 import { RenouncedFreezeFilter } from './renounced.filter';
 import { PoolSizeFilter } from './pool-size.filter';
 import { HoldersCountFilter, TopHolderDistributionFilter } from './holders';
-import { CHECK_IF_BURNED, CHECK_IF_FREEZABLE, CHECK_IF_MINT_IS_RENOUNCED, CHECK_IF_MUTABLE, CHECK_IF_SOCIALS, CHECK_HOLDERS_COUNT, CHECK_TOP_HOLDERS_DISTRIBUTION, logger } from '../helpers';
-
+import { CHECK_IF_BURNED, CHECK_IF_FREEZABLE, CHECK_IF_MINT_IS_RENOUNCED, CHECK_IF_MUTABLE, CHECK_IF_SOCIALS, CHECK_HOLDERS_COUNT, CHECK_TOP_HOLDERS_DISTRIBUTION, logger } from './constants';
 export interface Filter {
   execute(poolKeysV4: LiquidityPoolKeysV4): Promise<FilterResult>;
 }

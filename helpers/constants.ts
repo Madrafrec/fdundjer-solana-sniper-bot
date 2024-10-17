@@ -74,3 +74,5 @@ export const TOP_10_PERCENTAGE_CHECK = retrieveEnvVariable('TOP_10_PERCENTAGE_CH
 export const CHECK_HOLDERS_COUNT = retrieveEnvVariable('CHECK_HOLDERS_COUNT', logger) === 'true';
 export const CHECK_TOP_HOLDERS_DISTRIBUTION = retrieveEnvVariable('CHECK_TOP_HOLDERS_DISTRIBUTION', logger) === 'true';
 
+export { logger };
+

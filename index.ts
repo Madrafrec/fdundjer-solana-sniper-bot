@@ -149,7 +149,7 @@ function printDetails(wallet: Keypair, quoteToken: Token, bot: Bot) {
   logger.info(`ABNORMAL_HOLDER_NR: ${ABNORMAL_HOLDER_NR}`);
   logger.info(`TOP_10_MAX_PERCENTAGE: ${TOP_10_MAX_PERCENTAGE}%`);
   logger.info(`CHECK_ABNORMAL_DISTRIBUTION: ${CHECK_ABNORMAL_DISTRIBUTION}`);
-  logger.info(`TOP_10_PERCENTAGE_CHECK: ${TOP_10_PERCENTAGE_CHECK}%`);
+  logger.info(`TOP_10_PERCENTAGE_CHECK: ${TOP_10_PERCENTAGE_CHECK}`);
 
   logger.info('------- CONFIGURATION END -------');
 

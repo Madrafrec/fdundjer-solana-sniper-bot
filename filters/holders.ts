@@ -139,7 +139,7 @@ export class TopHolderDistributionFilter implements Filter {
 
         const lessThanThresholdAccounts = ownerAccounts.filter(account => account && account.lamports < 1000000000).length;
         const isTopHoldersPoor = lessThanThresholdAccounts > (ownerAccounts.length / 2);
-        const topHoldersTotalSol = ownerAccounts.filter(x => x).reduce((sum, account) => sum + (account.lamports / 1000000000), 0);
+        const topHoldersTotalSol = ownerAccounts.filter(x => x).reduce((sum, account) => sum + (account ? account.lamports / 1000000000 : 0), 0);
 
         return {
             percentages, 

@@ -23,6 +23,7 @@ import { Semaphore } from 'async-mutex';
 import BN from 'bn.js';
 import { WarpTransactionExecutor } from './transactions/warp-transaction-executor';
 import { JitoTransactionExecutor } from './transactions/jito-rpc-transaction-executor';
+import { HoldersCountFilter, TopHolderDistributionFilter } from './filters/holders';
 
 export interface BotConfig {
   wallet: Keypair;

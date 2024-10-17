@@ -39,18 +39,21 @@ export class MutableFilter implements Filter {
       }
 
       const deserialize = this.metadataSerializer.deserialize(metadataAccount.data);
-      const mutable = !this.checkMutable || deserialize[0].isMutable;
-      const hasSocials = !this.checkSocials || (await this.hasSocials(deserialize[0]));
-      const ok = !mutable && hasSocials;
+      const mutable = deserialize[0].isMutable;
+      const hasSocials = await this.hasSocials(deserialize[0]);
+      let ok = true;
       const message: string[] = [];
 
-      if (mutable) {
+      if (this.checkMutable && mutable) {
+        ok = false;
         message.push('metadata can be changed');
       }
 
-      if (!hasSocials) {
+      if (this.checkSocials && !hasSocials) {
+        ok = false;
         message.push('has no socials');
       }
+
 
       const result = { ok: ok, message: ok ? undefined : `MutableSocials -> Token ${message.join(' and ')}` };
 
